@@ -1,0 +1,25 @@
+# Virtual environment
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/raw/*.csv
+data/raw/*.zip
+
+# Large files
+vector_store/
+*.faiss
+*.pkl
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

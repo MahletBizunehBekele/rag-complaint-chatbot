@@ -1,0 +1,11 @@
+pandas 
+numpy 
+matplotlib 
+seaborn 
+scikit-learn 
+tqdm
+sentence-transformers
+langchain-text-splitters
+faiss-cpu
+notebook 
+jupyter
