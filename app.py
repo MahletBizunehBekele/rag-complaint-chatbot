@@ -1,27 +1,48 @@
 import streamlit as st
 from src.rag_pipeline import ask
 
-st.title(
-    "CrediTrust Complaint Analysis Assistant"
+st.set_page_config(
+    page_title="CrediTrust Complaint Analysis Assistant",
+    page_icon="💳"
 )
+
+st.title("CrediTrust Complaint Analysis Assistant")
+
+# Session state
+if "question" not in st.session_state:
+    st.session_state.question = ""
 
 question = st.text_input(
-    "Ask a question about customer complaints"
+    "Ask a question about customer complaints",
+    key="question"
 )
 
-if st.button("Ask"):
+col1, col2 = st.columns(2)
 
-    answer, sources = ask(question)
+with col1:
+    ask_button = st.button("Ask")
 
-    st.subheader("Answer")
-    st.write(answer)
+with col2:
+    clear_button = st.button("Clear")
 
-    st.subheader("Sources")
+if clear_button:
+    st.session_state.question = ""
+    st.rerun()
 
-    for i, source in enumerate(sources, 1):
-        st.markdown(f"**Source {i}**")
-        st.write(source[:500] + "...")
+if ask_button and question.strip():
 
+    try:
+        answer, sources = ask(question)
 
-if st.button("Clear"):
-    st.session_state.clear()
+        st.subheader("Answer")
+        st.write(answer)
+
+        st.subheader("Retrieved Sources")
+
+        for i, source in enumerate(sources, 1):
+            st.markdown(f"**Source {i}**")
+            st.write(source[:500] + "...")
+            st.divider()
+
+    except Exception as e:
+        st.error(f"Error: {e}")
