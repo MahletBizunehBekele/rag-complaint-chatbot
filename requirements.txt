@@ -9,3 +9,8 @@ langchain-text-splitters
 faiss-cpu
 notebook 
 jupyter
+chromadb
+sentence-transformers
+transformers
+torch
+streamlit

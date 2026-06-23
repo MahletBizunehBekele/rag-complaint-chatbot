@@ -8,14 +8,9 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data
+# Raw data only
 data/raw/*.csv
 data/raw/*.zip
-
-# Large files
-vector_store/
-*.faiss
-*.pkl
 
 # VSCode
 .vscode/
@@ -23,3 +18,9 @@ vector_store/
 # OS
 .DS_Store
 Thumbs.db
+
+data/
+
+.venv/
+
+data/processed/*.csv

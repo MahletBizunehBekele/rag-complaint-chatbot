@@ -51,12 +51,13 @@ def create_chunks(df):
             texts.append(chunk)
 
             metadata.append(
-                {
-                    "complaint_id": row["Complaint ID"],
-                    "product_category": row["Product"],
-                    "chunk_index": idx
-                }
-            )
+            {
+                "complaint_id": row["Complaint ID"],
+                "product_category": row["Product"],
+                "chunk_index": idx,
+                "chunk_text": chunk
+            }
+            )   
 
     return texts, metadata
 
